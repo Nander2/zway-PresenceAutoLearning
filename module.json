@@ -1,0 +1,51 @@
+{
+   "author" : "Gwenhael Le Normand",
+   "category" : "automation_basic",
+   "defaults" : {
+      "description" : "__m_descr__",
+      "title" : "__m_title__",
+      "device" : ""
+   },
+   "dependencies" : [
+      "Cron",
+      "BaseModule"
+   ],
+   "homepage" : "https://github.com/Nander2/Zway-PresenceAutoLearning/",
+   "icon" : "icon.png",
+   "maturity" : "stable",
+   "moduleName" : "PresenceAutoLearning",
+   "options" : {
+      "fields" : {
+		 "device": {
+				"label": "__l_dev__",
+				"fields":{
+					"label": "",
+					"datasource": "namespaces",
+					"field": "optionLabels",
+					"optionLabels": "namespaces:devices_sensorBinary:deviceId,namespaces:devices_switchControl:deviceId"
+				}
+		 }
+      }
+   },
+   "repository" : {
+      "source" : "https://github.com/Nander2/Zway-PresenceAutoLearning/",
+      "type" : "git"
+   },
+   "schema" : {
+	  "properties" : {
+		"device": {
+			"type": "array",
+			"items": {
+            			"field": "enum",
+            			"datasource": "namespaces",
+            			"enum": "namespaces:devices_sensorBinary:deviceId,namespaces:devices_switchControl:deviceId",
+            			"required": true
+			}
+            }
+      },
+      "required" : true,
+      "type" : "object"
+   },
+   "singleton" : true,
+   "version" : 1.0
+}
